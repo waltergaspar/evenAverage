@@ -11,7 +11,8 @@ public class EvenAverage {
         Locale.setDefault(Locale.US);
         Scanner scanner = new Scanner(System.in);
         int arrayLength;
-        double evenAverage;
+        int count = 0;
+        double evenAverage = 0.0;
         double sumEvenNumbers = 0.0;
 
 // getting the size of array
@@ -30,6 +31,7 @@ public class EvenAverage {
         for (int i = 0; i < arrayLength; i++) {
             if (arrayList[i] % 2 == 0) {
                 evenNumber[i] = arrayList[i];
+                count++;
             }
         }
 
@@ -37,13 +39,14 @@ public class EvenAverage {
         for (int j : evenNumber) {
             sumEvenNumbers += j;
         }
-        evenAverage = sumEvenNumbers / evenNumber.length;
+
+        evenAverage = sumEvenNumbers / count;
 
 // printing result
-        if (evenAverage != 0) {
-            System.out.printf("Even numbers average: %.1f%n", evenAverage);
-        } else {
+        if (sumEvenNumbers == 0) {
             System.out.println("No even number");
+        } else {
+            System.out.printf("Even numbers average: %.1f%n", evenAverage);
         }
     }
 }
